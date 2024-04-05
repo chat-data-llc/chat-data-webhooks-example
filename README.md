@@ -1,40 +1,49 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# [Chat Data](https://www.chat-data.com/) Webhook Integration Example
 
-## Getting Started
+## Introduction
+This repository showcases webhook integration for real-time `chat` events retrieval from the Chatbot website or third-party platforms integration solution of [Chat Data](https://www.chat-data.com/). Clients can leverage this functionality to monitor usage, implement exclusive chatbots for subscribed users, and ensure secure management of chat history.
 
-First, run the development server:
+# Demo Page
+![Webhooks Event Demo](./public/webhooks_demo.png)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+# Path
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- `src/pages/api/webhook.js`: Endpoint for receiving `chat` events.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Deployment with Vercel
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+### 1. Set Up the Environment Variables
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- `SIGNING_SECRET`: 
+If you're subscribed to the **Standard** or **Professional** plan of [Chat Data](https://www.chat-data.com/pricing), you can obtain your SIGNING_SECRET from the **Webhooks** section within the **Settings** tab.
+![Webhooks Signing Secret](./public/webhooks_signing_secret.png)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### 2. Vercel deployment
 
-## Learn More
+- Click **Import** to import your project:
 
-To learn more about Next.js, take a look at the following resources:
+![Vercel Import](./public/vercel_project_import.png)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Add Environment Variables:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+![Env Variables](./public/vercel_add_environment_variable.png)
+ 
+- Obtain your deployed page's domain name:
 
-## Deploy on Vercel
+![Vercel Deployment](./public/vercel_get_domain.png)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Add your Webhook endpoint in [Chat Data](https://www.chat-data.com/) and click **Save**. We allow up to three endpoints per chatbot. For additional endpoints, please contact us:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+![Domain Whitelist](./public/chat_data_add_webhook_endpoint.png)
+
+- You're all set! After chatting with your chatbot, you should observe something similar to the following picture in your logs. You can process or save the event payload as per your requirements.
+
+![Webhooks Event Demo](./public/webhooks_demo.png)
+
+## Conclusion
+
+The Chat Data webhook solution facilitates real-time event synchronization with the clients' server, enabling customization of the chatbot integration experience. This functionality seamlessly integrates with website or third-party platforms integration such as Discord, Slack, or WhatsApp.
+
+## Contact
+
+[Chat Data LLC](admin@chat-data.com)
