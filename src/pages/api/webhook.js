@@ -36,15 +36,10 @@ export default function handler(req, res) {
     return res.status(403).json({ error: '❌ Invalid signature' });
   }
   try {
-    switch (event) {
-      case 'chat':
-        const payload = JSON.parse(body);
-        console.log(`Received Chat Event`);
-        console.log(payload);
-        break;
-      default:
-        console.log(`Unhandled event type ${event}`);
-    }
+    const payload = JSON.parse(body);
+    console.log(`Received Event: ${event}`);
+    console.log('Event Payload:');
+    console.log(JSON.stringify(payload, null, 2));
     return res.status(200).json({ message: 'Webhook event received successfully' });
   } catch (err) {
     console.log(`❌ Error message: ${err.message}`);
